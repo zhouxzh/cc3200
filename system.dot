@@ -1,0 +1,33 @@
+digraph CC3200_Environment_Monitoring_System {
+    rankdir=LR;
+    node [shape=box];
+
+    // Sensors
+    TemperatureSensor [label="Temperature Sensor"];
+    HumiditySensor [label="Humidity Sensor"];
+    AirQualitySensor [label="Air Quality Sensor"];
+
+    // CC3200 Microcontroller
+    CC3200 [label="CC3200 Microcontroller"];
+    WiFiModule [label="Wi-Fi Module (CC3200)"];
+    ADC [label="Analog-to-Digital Converter (ADC)"];
+    Memory [label="Memory (Flash)"];
+
+    // Cloud Server/Web Application
+    CloudServer [label="Cloud Server/Web Application"];
+    DataStorage [label="Data Storage"];
+    DataAnalysis [label="Data Analysis"];
+    UserInterface [label="User Interface"];
+
+    // Connections
+    TemperatureSensor -> CC3200;
+    HumiditySensor -> CC3200;
+    AirQualitySensor -> CC3200;
+    CC3200 -> WiFiModule;
+    CC3200 -> ADC;
+    CC3200 -> Memory;
+    WiFiModule -> CloudServer;
+    CloudServer -> DataStorage;
+    CloudServer -> DataAnalysis;
+    CloudServer -> UserInterface;
+}
